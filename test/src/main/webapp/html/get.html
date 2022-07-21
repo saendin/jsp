@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+<meta charset="UTF-8">
+<title>html/get.html</title>
+</head>
+<body>
+	<h1>정보 수정 페이지입니다</h1>
+	<form action="../addMember" method="get">
+	<label for = "user_id"> ID :</label>
+	<input type="text" name="user_id" placeholder = "4~15자리 사이로 입력해주세요" autofocus required>
+	<label for = "user_password">PASSWORD :</label>
+	<input type="password" name="user_password" placeholder = "4자리 이상 입력해주세요" required>
+	<label for = "role">ROLE :</label>
+	<select name="role">
+	<option value="" selected>--Choose One--</option>
+	<option value="1">user</option>
+	<option value="0">admin</option>
+	</select>
+	<input type= "submit" value = "send">
+	</form>
+	<script>
+	let form = document.querySelector('form');
+		form.addEventListener('submit',send());
+	let id = document.querySelector("[name='user_id']");
+	let pwd = document.querySelector("[name='user_password']");
+	
+	id.onchange = checkId;
+	pwd.onchange = checkPwd;
+	
+	function send(e){
+		e.preventDefault();
+		let filledId = document.querySelector('input[name="user_id"]').value;
+		let filledPwd = document.querySelector('input[name="user_password"]').value;
+		let chooseRole = document.querySelector('select[name="role"]').value;
+		
+		if(filledId=='' || filledPwd=='' || chooseRole==''){
+			alert('값을 입력해주세요 !');
+			return;
+		}
+		this.submit(); //서브밋 이벤트 발생
+	}
+	console.log(form);
+	
+	function checkId(){
+		if(id.value.length < 4 || id.value.length > 15) {
+			alert('아이디는 4~15자 사이로 입력해주세요 !');
+			id.select();
+		}
+	}
+	
+	function checkPwd(){
+		if(pwd.value.length <4) {
+			alert('비밀번호는 4자리 이상 입력해주세요 !');
+			pwd.value='';
+			pwd.focus();
+		}
+	}
+	</script>
+</body>
+</html>
