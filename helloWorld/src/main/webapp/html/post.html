@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html/get.html</title>
+</head>
+<body>
+	<!-- web.xml에서 servlet-class에 적어준 경로로 연결해줌 -->
+	<!-- web.xml에서 <url-pattern>/addInfo/*</url-pattern>이기 때문에 form에서 걸어준 다음의 액션 경로를 실행해줌 -->
+	<h1>POST방식(입력) 요청!</h1>
+	<form action="../addMember" method="post">
+	<label for = "user_name">사용자이름 : <input type = "text" name="user_name" placeholder = "아아디를 입력하세요" autofocus><br></label>
+	<label for = "user_pass">비밀번호 : <input type = "password" name="user_pass"><br></label>
+	
+	권한선택 : <select name="role">
+	<option value ='' selected>--선택하세요--</option>
+	<option value ='0'>관리자</option>
+	<option value ='1'>회원</option>
+	</select>
+	<input type = "submit" value = "Send">
+	<!--  <label for = "role">Role :
+	<input type = "number" name="role"><br></label>
+	-->
+	</form>
+	<script>
+	let form = document.querySelector('form');
+	let name = document.querySelector("[name='user_name']");
+	let pwd = document.querySelector("[name='user_pass']");
+	
+	form.addEventListener('submit', function(e){
+		e.preventDefault();
+		let namee = document.querySelector('input[name="user_name"]').value;
+		let pwdd = document.querySelector('input[name="user_pass"]').value;
+		let role = document.querySelector('select[name="role"]').value;
+		
+		if(namee == "" || pwdd == "" || role =="" ){
+			alert('값을 입력하세요 !');
+			return;
+		}
+		this.submit(); //서브밋 이벤트 발생.
+	})
+	console.log(form);
+	
+	name.onchange = checkName;
+	pwd.onchange = checkPwd;
+	
+	function checkName(){
+		if(name.value.length < 4 || name.value.length>15) {
+			alert('아이디는 4~15자 사이로 입력해주세요!')
+			name.value="";
+			name.focus();
+		}
+	}
+	
+	function checkPwd(){
+		if(pwd.value.length < 4) {
+			alert('비밀번호는 5글자 이상 입력해주세요!')
+			name.value="";
+			name.focus();
+		}
+	}
+	
+	
+	</script>
+</body>
+</html>
