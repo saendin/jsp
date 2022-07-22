@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.edu.common.EmpDAO;
+import com.edu.common.Employee;
+
 @WebServlet("/empListservlet.do")
 //--사원 정보 리스트 출력(EmpListservlet.do)
 //--사원번호/이름/이메일/입사일자/급여/직무(job_id)

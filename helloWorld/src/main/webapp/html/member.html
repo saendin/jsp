@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>html/member.html</title>
+</head>
+
+<body>
+  <h3>회원정보</h3>
+  <form action="queryTest" method="post">
+    ID: <input type="text" name="id"><br>
+    PASSWORD: <input type="password" name="pwd"><br>
+    이름: <input type="text" name="name"><br>
+    취미: <input type="checkbox" name="hobby" value="climbing">등산<br>
+    <input type="checkbox" name="hobby" value="sport">운동<br>
+    <input type="checkbox" name="hobby" value="reading">독서<br>
+    <input type="checkbox" name="hobby" value="travel">여행<br>
+    성별:  <input type="radio" name="gender" value="male">남자
+           <input type="radio" name="gender" value="female">여자<br>
+    종교: <select name ="religion">
+      <option value="christianity">기독교</option>
+      <option value="buddhism">불교</option>
+      <option value="catholicism">천주교</option>
+      <option value="atheism">무교</option>
+    </select>
+    자기소개: <br>
+    <textarea name="introduction" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="전송">
+    <input type="rest" value="초기화">
+  </form>
+  <script>
+  	console.log(decodeURI('%ED%99%8D%EA%B8%B8%EB%8F%99'));
+  	console.log(encodeURI('홍길동'));
+  	
+  	let str = 'id=user5&pwd=5555&name=홍길동&hobby=climbing&hobby=sport&hobby=reading&hobby=travel&gender=male&religion=buddhism&introduction=asdfasdfasdf히히히히';
+  	
+  	
+  	
+    //queryString
+    //subString indexOf
+  	//ex) str이라는 문자열 안에서 pwd라는 문자열 값을 찾아서 리턴해주는 함수 만들기
+    //indexOf는 문자열을 앞에서부터 찾아서 결과를 반환해줌
+  	function getParameter(queryString, param) {
+      
+      //str 스플리트한거 담아줄 배열 선언
+      let strList = [];
+
+      //strList는 앤퍼센트 연산자 앞글자 까지 잘라준것들을 담은 것
+      strList =queryString.split('&'); //['id=user5', 'pwd=5555', 'name=홍길동' ... ]
+      
+      //substr([시작위치],[길이])=길이 지정안해주면 문자열의 끝까지 반환
+      // strList.toLowerCase()/substr(strList.indexOf(param)+param.length+1)
+
+      //포문을 돌리면서 strList안에서 param을 만족하는 값 찾을 것
+      for(let i=0; i<strList.length; i++ ){
+        if(strList[i].includes(param)) {
+          let arr = strList[i].split('=');
+          console.log(arr[1]);
+        }
+      }
+  	}
+
+    let result = getParameter(str, 'pwd');
+    console.log(result);
+
+  	</script>
+</body>
+
+</html>
