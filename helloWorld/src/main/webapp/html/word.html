@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>word.html</title>
+</head>
+<style>
+  #show {
+    width: 350px;
+    height: 370px;
+    background-color: yellow;
+  }
+
+  #show>span {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    background-color: aqua;
+    border : 1px solid aquamarine;
+    padding : 2px;
+    margin: 2px;
+  }
+  #show>span:nth-child(3n){
+    display : none;
+  }
+</style>
+<body>
+  <input type="text" name="userInput" id="userInput" onchange="removeworld()">
+  <div id="show"></div>
+  
+  <script>
+    let words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis sunt, nobis fuga soluta architecto deserunt deleniti veritatis molestias rerum similique exercitationem odit aspernatur amet optio minus vero iusto consectetur id!'
+    let wordList = words.split(' ');
+    // let show = document.getElementById('show');
+
+    for (let word of wordList) {
+      let span = document.createElement('span');
+      span.innerText = word;
+      show.append(span);
+    }
+
+    //userInput : chang라는 이벤트 발생하도록
+
+    // inputValue.onchange = removeValue;
+
+    // function removeValue(){
+    //   let value = this.value;
+    //   let index = wordList.indexOf(value) + 1;
+    //   console.log(index);
+    //   return document.querySelector(`#show>span:nth-child(${index})`).style.display='none';
+    // }
+
+    // console.log(removeValue);
+
+    let input = document.querySelector('#userInput');
+    let sps = document.querySelectorAll('span');
+    // input.onchange=removeworld;
+
+    function removeworld() {
+      for(let s of sps) {
+        if(s.innerText==input.value) {
+          s.remove();
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
