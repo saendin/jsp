@@ -7,12 +7,12 @@
 <body>
 	<!-- web.xml에서 servlet-class에 적어준 경로로 연결해줌 -->
 	<!-- web.xml에서 <url-pattern>/addInfo/*</url-pattern>이기 때문에 form에서 걸어준 다음의 액션 경로를 실행해줌 -->
-	<h1>GET방식(수정) 요청!</h1>
+	<h1>정보 수정 페이지입니다</h1>
 	<form action="../addMember" method="get">
 	<label for = "user_name">사용자이름 : <input type = "text" name="user_name" placeholder = "아아디를 입력하세요" autofocus><br></label>
 	<label for = "user_pass">비밀번호 : <input type = "password" name="user_pass"><br></label>
 	
-	권한선택 : <select name="role">
+	<label for = "role">권한선택 : </label>
 	<option value ='' selected>--선택하세요--</option>
 	<option value ='0'>관리자</option>
 	<option value ='1'>회원</option>
