@@ -31,9 +31,9 @@ public class BoardDAO extends DAO {
 			int result = pstmt.executeUpdate();
 
 			if (result > 0) {
-				System.out.println('"' + result + '"' + "건 등록 완료");
+				System.out.println(result + "건 등록 완료");
 			} else
-				System.out.println('"' + result + '"' + "건 등록 실패");
+				System.out.println(result + "건 등록 실패");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -126,9 +126,9 @@ public class BoardDAO extends DAO {
 			int result = pstmt.executeUpdate();
 
 			if (result > 0) {
-				System.out.println('"' + result + '"' + "건 수정 완료");
+				System.out.println(result + "건 수정 완료");
 			} else {
-				System.out.println('"' + result + '"' + "건 수정 실패");
+				System.out.println(result + "건 수정 실패");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -149,9 +149,9 @@ public class BoardDAO extends DAO {
 			int result = pstmt.executeUpdate();
 
 			if (result > 0) {
-				System.out.println('"' + result + '"' + "건 삭제 완료");
+				System.out.println(result + "건 삭제 완료");
 			} else {
-				System.out.println('"' + result + '"' + "건 삭제 실패");
+				System.out.println(result + "건 삭제 실패");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
