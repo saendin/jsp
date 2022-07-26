@@ -8,18 +8,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-	table {
-		width:100%;
-	}
-	td {
+<title>boardList.jsp</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400&display=swap');
+		  body {
+		  color: grey;
+		  font-family : 'Noto Serif KR', serif;
+		  font-size : small
+		  }
+		table {
+			width:100%;
+		}
+		th {
+			text-align:left;
+		}
+		td {
+			padding:2% 1%;
+		}
+		input[type="submit"] {
+		float:right;
+		margin-right: 5%;
 		text-align:center;
-		padding:2% 2%;
-	}
-</style>
+		}
+	</style>
 </head>
 <body>
+	<%
+		String id = (String) session.getAttribute("loginId");
+		if(id!= null) {
+			out.print("<h3>" + id + "님으로 로그인 되었습니다 !" + "</h3><br>");
+			out.print("<a href = 'logout.jsp'><input type='submit' value='로그아웃'></a><br>");
+		} else {
+			out.print("<h3> 로그인해주세요! </h3>");
+		}
+	%>
+
 	<table>
 		<thead>
 			<tr>
@@ -48,6 +71,8 @@
 			}
 			%>
 		</tbody>
+	</table>
+	<table><a href = "addBoard.jsp"><input type="submit" value="글쓰기"></a>
 	</table>
 </body>
 </html>
