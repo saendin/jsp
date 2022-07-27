@@ -57,18 +57,15 @@
 		<p/>
 	</table>
 	<table>
-
-			<c:choose>
-      		<c:when test="${!empty loginId && loginId eq vo.writer}">
-			<tr><td><input type="hidden" name = "delete" value="${vo.boardId}">
-					<input type="submit" value="삭제"></td><td><a href="boardList.jsp"><input type="submit" value="취소"></a></td></tr>
+		<c:choose>
+    		<c:when test="${!empty loginId && loginId eq vo.writer}">
+				<tr><td><input type="hidden" name = "delete" value="${vo.boardId}">
+				<input type="submit" value="삭제"></td><td><a href="boardList.jsp"><input type="submit" value="취소"></a></td></tr>
 			</c:when>
 			<c:otherwise>
-			<tr><td><input type="submit" value="삭제" disabled></td><td><a href="boardList.jsp"><input type="submit" value="취소"></a></td></tr>
+				<tr><td><input type="submit" value="삭제" disabled></td><td><a href="boardList.jsp"><input type="submit" value="취소"></a></td></tr>
 			</c:otherwise>
-			</c:choose>
-	
-
+		</c:choose>
 	</table>
 	</form>
 </body>
