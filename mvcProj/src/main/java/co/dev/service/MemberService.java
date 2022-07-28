@@ -30,7 +30,17 @@ public class MemberService {
 		return dao.searchMember(id);
 	}
 	
-	//public void addUpdateMember(MemberVO vo) {
-	//	dao.insertMember(vo);
-	//	dao.updateMember(vo);
+	
+	public void modifyMember(MemberVO vo) {
+		dao.updateMember(vo);
+	}
+	
+	public void deleteMember(MemberVO vo) {
+		dao.deleteMember(vo);
+	}
+	
+	//하나에 여러개 기능 추가할 때 이런 식으로
+//	public void addUpdateMember(MemberVO vo) {
+//		dao.insertMember(vo);
+//		dao.updateMember(vo);
 }

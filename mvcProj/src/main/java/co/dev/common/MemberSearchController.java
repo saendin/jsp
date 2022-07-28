@@ -18,11 +18,13 @@ public class MemberSearchController implements Controller {
 		String job = req.getParameter("job"); // view에서 지정한 name 파라메터값(search/update) 가져옴
 
 		if (id.isEmpty()) { // 아이디가 있으면 조회하고 없으면 조회 못하도록
-			req.setAttribute("error", "<span style='color:red;'>id를 입력하세요 !</span>");
+			req.setAttribute("error", "<span style='color:red;'>id를 입력하세요 !</span>");//req.setAttribute(키(매개변수):벨류(송출값))
 			if (job.equals("search")) {
 				Utils.forward(req, resp, "memberView/memberSearch.jsp");
 			} else if (job.equals("update")) {
 				Utils.forward(req, resp, "memberView/memberUpdate.jsp");
+			} else if (job.equals("delete")) {
+				Utils.forward(req, resp, "memberView/memberDelete.jsp");
 			}
 			return;
 		}
@@ -39,6 +41,8 @@ public class MemberSearchController implements Controller {
 			Utils.forward(req, resp, "memberResult/memberSearchOutput.jsp");
 		} else if (job.equals("update")) {
 			Utils.forward(req, resp, "memberView/memberUpdate.jsp");
+		} else if (job.equals("delete")) {
+			Utils.forward(req, resp, "memberView/memberDelete.jsp");
 		}
 	}
 //		try {

@@ -1,4 +1,7 @@
 package co.edu.common;
+
+import java.util.List;
+
 //업무 처리 로직
 //기능은 DAO에서 세분화해서 만들고 처리를 Service에서 필요한대로 엮어서 쓸 수 있음
 //ex)MemberDAO가 가지고 있는
@@ -22,5 +25,4 @@ public class MemberService {
 		dao.insertMember(vo);
 //		dao.deleteMember(vo); ->아직 DAO에서 구현 x
 	}
-	
 }

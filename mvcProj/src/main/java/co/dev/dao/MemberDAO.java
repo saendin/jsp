@@ -113,4 +113,42 @@ public class MemberDAO {
 		}
 		return null;
 	}
+	
+	public void updateMember(MemberVO vo) {
+		connect();
+		String sql = "update member set name = ?, pwd = ?, mail = ? where id =?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPwd());
+			pstmt.setString(3, vo.getMail());
+			pstmt.setString(4, vo.getId());
+			
+			int r = pstmt.executeUpdate();
+			
+			System.out.println(r + "건 수정 완료!");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+	
+	public void deleteMember(MemberVO vo) {
+		connect();
+		String sql = "delete from member where id = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			
+			int r = pstmt.executeUpdate();
+			
+			System.out.println(r + "건 삭제 완료 !");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
