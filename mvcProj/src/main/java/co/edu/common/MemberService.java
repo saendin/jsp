@@ -25,4 +25,5 @@ public class MemberService {
 		dao.insertMember(vo);
 //		dao.deleteMember(vo); ->아직 DAO에서 구현 x
 	}
+
 }

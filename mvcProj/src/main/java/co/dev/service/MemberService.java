@@ -35,8 +35,8 @@ public class MemberService {
 		dao.updateMember(vo);
 	}
 	
-	public void deleteMember(MemberVO vo) {
-		dao.deleteMember(vo);
+	public boolean deleteMember(String id) {
+		return dao.deleteMember(id);
 	}
 	
 	//하나에 여러개 기능 추가할 때 이런 식으로

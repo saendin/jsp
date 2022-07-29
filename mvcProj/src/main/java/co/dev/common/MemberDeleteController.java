@@ -25,7 +25,7 @@ public class MemberDeleteController implements Controller {
 		vo.setMail(em);
 		
 		MemberService service = MemberService.getInstance();
-		service.deleteMember(vo);
+		service.deleteMember(id);
 		
 		req.setAttribute("member", vo);
 		Utils.forward(req,  resp, "memberResult/memberDeleteOutput.jsp");

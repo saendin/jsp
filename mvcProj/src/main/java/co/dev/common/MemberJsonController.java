@@ -36,7 +36,7 @@ public class MemberJsonController implements Controller {
 		jAry.add(jObj);
 		}
 		try {
-			resp.getWriter().print(json);
+			resp.getWriter().print(jAry);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

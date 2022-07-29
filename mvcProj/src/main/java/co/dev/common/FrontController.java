@@ -32,6 +32,8 @@ public class FrontController extends HttpServlet {
 		mappings.put("/memberUpdate.do", new MemberUpdateController());
 		mappings.put("/memberDelete.do", new MemberDeleteController());
 		mappings.put("/memberJson.do", new MemberJsonController());
+		mappings.put("/addMemberAjax.do", new AddMemberAjaxController()); //멤버 추가하는 ajax입력하기 위한 호출)
+		mappings.put("/removeMemberAjax.do", new RemoveMemberAjaxController());
 	}
 
 	@Override
