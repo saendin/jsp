@@ -9,19 +9,8 @@ import com.tst.common.DAO;
 public class BoardDAO extends DAO {
 	// 등록
 	public void insertBoard(BoardVO vo) {
-		connect();
-		String sql = "insert into board values((select nvl(max(board_id),0)+1 from board), ?, ?, ?, sysdate, 0)"; // sysdate는
-																													// 글
-																													// 쓴
-																													// 시점의
-																													// 데이트를
-																													// 입력해야되고
-																													// count는
-																													// 처음이
-																													// 0이니까
-																													// 그대로
-																													// 사용
-
+		connect(); // sysdate는 글쓴 시점의 데이트를 입력해야되고 count는 처음이 0이니까 그대로 사용
+		String sql = "insert into board values((select nvl(max(board_id),0)+1 from board), ?, ?, ?, sysdate, 0)"; 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getTitle());

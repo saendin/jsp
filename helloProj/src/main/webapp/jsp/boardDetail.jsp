@@ -53,7 +53,7 @@
 					<tr><th>|작성일시|</th><td>${vo.createDate}</td></tr>
 					<tr><th>|조회 수|</th><td>${vo.cnt}</td></tr>
 		</tbody>
-		<p/>
+		<p />
 		<a href="boardList.jsp"><input type="submit" value="목록으로"></a>
 	</table>
 		<a href = "deleteForm.jsp?brdNo=${vo.boardId}"><input type="submit" value="삭제"></a>
